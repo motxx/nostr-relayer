@@ -80,15 +80,18 @@ func removeListener(ws *WebSocket) {
 }
 
 func notifyListeners(event *nostr.Event) {
-	listenersMutex.Lock()
-	defer listenersMutex.Unlock()
+	// This relay is READ-ONLY
+	/*
+		listenersMutex.Lock()
+		defer listenersMutex.Unlock()
 
-	for ws, subs := range listeners {
-		for id, listener := range subs {
-			if !listener.filters.Match(event) {
-				continue
+		for ws, subs := range listeners {
+			for id, listener := range subs {
+				if !listener.filters.Match(event) {
+					continue
+				}
+				ws.WriteJSON(nostr.EventEnvelope{SubscriptionID: &id, Event: *event})
 			}
-			ws.WriteJSON(nostr.EventEnvelope{SubscriptionID: &id, Event: *event})
 		}
-	}
+	*/
 }
