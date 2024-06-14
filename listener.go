@@ -80,7 +80,8 @@ func removeListener(ws *WebSocket) {
 }
 
 func notifyListeners(event *nostr.Event) {
-	// This relay is READ-ONLY
+	// Don't publish to other relays.
+	// This relay is not expected for clients to publish (read-only).
 	/*
 		listenersMutex.Lock()
 		defer listenersMutex.Unlock()
