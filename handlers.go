@@ -475,7 +475,7 @@ func (s *Server) HandleNIP11(w http.ResponseWriter, r *http.Request) {
 			PubKey:        "~",
 			Contact:       "~",
 			SupportedNIPs: supportedNIPs,
-			Software:      "https://github.com/motxx/relayer",
+			Software:      "https://github.com/motxx/nostr-relayer",
 			Version:       "~",
 		}
 	}
