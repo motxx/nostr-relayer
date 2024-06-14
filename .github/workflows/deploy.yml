@@ -21,13 +21,11 @@ jobs:
       - name: Add known_hosts
         run: echo "${{ secrets.KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
 
-      - name: Copy files via scp
-        run: scp -r * ubuntu@5.75.184.186:/home/ubuntu/nostr/relayer
-
-      - name: Run Docker Compose
+      - name: Run git pull and Docker Compose on server
         run: |
           ssh ubuntu@5.75.184.186 << 'EOF'
-          cd /home/ubuntu/nostr/relayer
+          cd /home/ubuntu/nostr-relayer
+          git pull origin main
           docker-compose pull
           docker-compose up -d
           EOF
