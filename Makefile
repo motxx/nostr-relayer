@@ -1,14 +1,25 @@
+.PHONY: all deploy build up down logs logs-relay prune
+
+CMD_DIR=cmd
+
 all: build up
+
 deploy: build up prune
+
 build:
-	cd cmd && $(MAKE) build
+	cd $(CMD_DIR) && $(MAKE) build
+
 up:
-	cd cmd && $(MAKE) up
+	cd $(CMD_DIR) && $(MAKE) up
+
 down:
-	cd cmd && $(MAKE) down
+	cd $(CMD_DIR) && $(MAKE) down
+
 logs:
-	cd cmd && $(MAKE) logs
+	cd $(CMD_DIR) && $(MAKE) logs
+
 logs-relay:
-	cd cmd && $(MAKE) logs-relay
+	cd $(CMD_DIR) && $(MAKE) logs-relay
+
 prune:
-	cd cmd && $(MAKE) prune
+	cd $(CMD_DIR) && $(MAKE) prune
