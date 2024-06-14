@@ -26,5 +26,5 @@ jobs:
           ssh ubuntu@5.75.184.186 << 'EOF'
           cd /home/ubuntu/nostr-relayer
           git pull origin main
-          make
+          make deploy
           EOF

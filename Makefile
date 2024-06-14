@@ -1,4 +1,5 @@
 all: build up
+deploy: build up prune
 build:
 	cd cmd && $(MAKE) build
 up:
