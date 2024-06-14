@@ -10,4 +10,4 @@ logs:
 logs-relay:
 	docker compose logs -f relay
 prune:
-	docker system prune
+	yes | docker system prune
